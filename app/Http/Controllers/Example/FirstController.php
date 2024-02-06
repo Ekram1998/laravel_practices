@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Example;
+use Illuminate\Support\Facades\Hash;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -31,6 +32,15 @@ class FirstController extends Controller
     public function page()
     {
         return view('regForm');
+    }
+
+    //__password hash__//
+    public function pass(Request $request)
+    {
+//        $password = $request->password;
+//        echo $password;
+        $password = Hash::make($request->password);
+        echo $password;
     }
 
     //__form page value show__//
